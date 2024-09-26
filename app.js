@@ -73,7 +73,7 @@ Exercise 5: Insert an element between two others
 Complete Exercise 5 in the space below:
 */
 
-foods.splice(1,0,'tofu');
+foods.splice(2,0,'tofu');
 
 console.log('Exercise 5 result:', foods);
 
@@ -88,7 +88,7 @@ Exercise 6: Replace elements
 Complete Exercise 6 in the space below:
 */
 
-foods.splice(2, 1, 'sushi', 'cupcake');
+foods.splice(1, 1, 'sushi', 'cupcake');
 
 console.log('Exercise 6 result:', foods);
 
@@ -106,7 +106,7 @@ Exercise 7: Using the `slice()` method
 Complete Exercise 7 in the space below:
 */
 
-yummy = foods.slice(2,4);
+yummy = foods.slice(1,3);
 
 console.log('Exercise 7 result:', yummy);
 
@@ -184,6 +184,7 @@ Complete Exercise 11 in the space below:
 */
 
 const nums = [100, 5, 23, 15, 21, 72, 9, 45, 66, 7, 81, 90];
+
 const odds = [];
 nums.forEach(num => {
     if (num%3 == 0) {
@@ -220,11 +221,17 @@ const buzz = [];
 const fizzbuzz = [];
 
 nums.forEach(num => {
-    if (num%3==0 && num%5==0) fizzbuzz.push(num);
+    if (num%3==0 && num%5==0) {
+        fizzbuzz.push(num);
+        fizz.push(num);
+        buzz.push(num);
+    }
     else if (num%3==0) fizz.push(num);
     else if (num%5==0) buzz.push(num);
 });
-
+fizz.sort((a, b) => a - b);
+fizzbuzz.sort((a, b) => a - b);
+buzz.sort((a, b) => a - b);
 
 console.log('Exercise 12 Results:');
 console.log('  fizz:', fizz);
@@ -279,7 +286,9 @@ let num = 0;
 
 numArrays.forEach(numList => {
     if (numList.includes(66)) {
-        num = 66;
+        numList.forEach (n => {
+            if (n == 66) num = n;
+        });
     }
 });
 
